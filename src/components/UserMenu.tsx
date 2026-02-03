@@ -59,7 +59,7 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
         </button>
 
         {/* User Profile Section */}
-        <div className="p-4 border-b border-border">
+        <Link to="/profile" onClick={onClose} className="block p-4 border-b border-border hover:bg-secondary/50 transition-colors">
           <div className="flex items-center gap-3">
             <img 
               src={currentUser.avatar} 
@@ -87,7 +87,9 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
           </div>
           
           {/* Stats */}
-          <div className="flex items-center gap-4 mt-3">
+        </Link>
+        <div className="p-4 border-b border-border">
+          <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5 text-sm">
               <Zap className="h-4 w-4 text-yellow-400" />
               <span className="text-muted-foreground">{currentUser.coins}</span>
@@ -100,6 +102,7 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
               <span className="text-lg leading-none">+</span>
             </button>
           </div>
+        </div>
         </div>
 
         {/* Menu Items */}

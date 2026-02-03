@@ -11,6 +11,8 @@ import Quests from "./pages/Quests";
 import Popular from "./pages/Popular";
 import Ratings from "./pages/Ratings";
 import Guilds from "./pages/Guilds";
+import Profile from "./pages/Profile";
+import Notifications from "./pages/Notifications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/ratings/:type" element={<Ratings />} />
           <Route path="/guilds" element={<Guilds />} />
           <Route path="/guilds/:id" element={<Guilds />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/notifications" element={<Notifications />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
