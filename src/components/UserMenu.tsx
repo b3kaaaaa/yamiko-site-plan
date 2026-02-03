@@ -102,10 +102,6 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
           </div>
         </Link>
 
-        <div className="p-4 border-b border-border">
-          {/* Additional info could go here */}
-        </div>
-
         {/* Menu Items */}
         <nav className="p-2">
           {menuItems.map((item, index) => {
