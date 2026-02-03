@@ -437,6 +437,6 @@ const MangaDetails = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default MangaDetails;
