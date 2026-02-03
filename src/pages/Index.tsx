@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getPopularManga, getRecentlyUpdated, getTopRated, getGenres, getAllManga } from "@/lib/database";
+import { mockQuests, mockUsers, mockGuilds } from "@/lib/mockData";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GenreTag } from "@/components/Badges";
@@ -9,6 +10,8 @@ import { LatestUpdates } from "@/components/LatestUpdates";
 import { HorizontalScroll } from "@/components/HorizontalScroll";
 import { MangaCardCompact } from "@/components/MangaCardCompact";
 import { SectionHeader } from "@/components/SectionHeader";
+import { QuestCard } from "@/components/QuestCard";
+import { UserRatingCard, GuildCard } from "@/components/RatingCard";
 
 const Index = () => {
   const popularManga = getPopularManga(10);
@@ -20,8 +23,8 @@ const Index = () => {
   // Featured manga for banner
   const featured = popularManga[0];
 
-  // Mock continue reading data (would come from user's reading history)
-  const continueReading = allManga.slice(0, 4).map((manga, index) => ({
+  // Mock continue reading data
+  const continueReading = allManga.slice(0, 4).map((manga) => ({
     manga,
     currentChapter: Math.floor(Math.random() * manga.chaptersCount) + 1,
     totalChapters: manga.chaptersCount,
@@ -58,7 +61,7 @@ const Index = () => {
 
         {/* Popular Today */}
         <section>
-          <SectionHeader title="Популярное сегодня" viewAllLink="/catalog?sort=popular" />
+          <SectionHeader title="Популярное сегодня" viewAllLink="/popular" />
           <HorizontalScroll>
             {popularManga.map((manga) => (
               <MangaCardCompact key={manga.id} manga={manga} />
@@ -81,6 +84,16 @@ const Index = () => {
           </HorizontalScroll>
         </section>
 
+        {/* Quests */}
+        <section>
+          <SectionHeader title="Квесты" viewAllLink="/quests" />
+          <HorizontalScroll>
+            {mockQuests.map((quest) => (
+              <QuestCard key={quest.id} quest={quest} />
+            ))}
+          </HorizontalScroll>
+        </section>
+
         {/* Hot New Projects */}
         <section>
           <SectionHeader title="Горячие новинки" viewAllLink="/catalog?sort=new" />
@@ -90,6 +103,29 @@ const Index = () => {
             ))}
           </HorizontalScroll>
         </section>
+
+        {/* Ratings Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Top Readers */}
+          <section>
+            <SectionHeader title="Топ читателей" viewAllLink="/ratings/users" />
+            <div className="space-y-2">
+              {mockUsers.slice(0, 5).map((user) => (
+                <UserRatingCard key={user.id} user={user} />
+              ))}
+            </div>
+          </section>
+
+          {/* Top Guilds */}
+          <section>
+            <SectionHeader title="Топ гильдий" viewAllLink="/ratings/guilds" />
+            <div className="space-y-3">
+              {mockGuilds.slice(0, 3).map((guild) => (
+                <GuildCard key={guild.id} guild={guild} />
+              ))}
+            </div>
+          </section>
+        </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
