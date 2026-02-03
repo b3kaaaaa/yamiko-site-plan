@@ -59,7 +59,7 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
         </button>
 
         {/* User Profile Section */}
-        <div className="p-4 border-b border-border">
+        <Link to="/profile" onClick={onClose} className="block p-4 border-b border-border hover:bg-secondary/50 transition-colors">
           <div className="flex items-center gap-3">
             <img 
               src={currentUser.avatar} 
@@ -100,7 +100,7 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
               <span className="text-lg leading-none">+</span>
             </button>
           </div>
-        </div>
+        </Link>
 
         {/* Menu Items */}
         <nav className="p-2">
