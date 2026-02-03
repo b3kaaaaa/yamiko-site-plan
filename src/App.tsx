@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import Catalog from "./pages/Catalog";
 import MangaDetails from "./pages/MangaDetails";
 import Reader from "./pages/Reader";
+import Quests from "./pages/Quests";
+import Popular from "./pages/Popular";
+import Ratings from "./pages/Ratings";
+import Guilds from "./pages/Guilds";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +26,12 @@ const App = () => (
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/manga/:id" element={<MangaDetails />} />
           <Route path="/reader/:mangaId/:chapterId" element={<Reader />} />
+          <Route path="/quests" element={<Quests />} />
+          <Route path="/popular" element={<Popular />} />
+          <Route path="/ratings" element={<Ratings />} />
+          <Route path="/ratings/:type" element={<Ratings />} />
+          <Route path="/guilds" element={<Guilds />} />
+          <Route path="/guilds/:id" element={<Guilds />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
