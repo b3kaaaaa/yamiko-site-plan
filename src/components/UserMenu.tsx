@@ -87,9 +87,7 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
           </div>
           
           {/* Stats */}
-        </Link>
-        <div className="p-4 border-b border-border">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-3">
             <div className="flex items-center gap-1.5 text-sm">
               <Zap className="h-4 w-4 text-yellow-400" />
               <span className="text-muted-foreground">{currentUser.coins}</span>
@@ -102,7 +100,10 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
               <span className="text-lg leading-none">+</span>
             </button>
           </div>
-        </div>
+        </Link>
+
+        <div className="p-4 border-b border-border">
+          {/* Additional info could go here */}
         </div>
 
         {/* Menu Items */}
